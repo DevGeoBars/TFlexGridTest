@@ -3,7 +3,7 @@ import './App.css'
 import React, { useEffect, useState } from 'react'
 
 import { columns } from './__mocks__/columns'
-import { data as dataLocal } from './__mocks__/tree/data'
+import { data_parent } from './__mocks__/tree/data_parent'
 
 import { Button, Grid as GridComponent } from '@tflex/uikit'
 
@@ -16,7 +16,7 @@ import { treeConfig } from "./__mocks__/tree/treeConfig";
 
 const Grid = GridComponent as any;
 function App() {
-  const [data, setData] = useState(dataLocal);
+  const [data, setData] = useState(data_parent);
 
 
 
@@ -25,18 +25,15 @@ function App() {
       <Grid
         data={data}
         config={treeConfig}
-        dragAndDrop={false}
+        dragAndDrop={true}
         lazyRender={{
           chunkSize: 10,
           chunksVisibleBuffer: 1,
         }}
         treeConfig={{
-          childrenKey: 'children',
-          childrenSource: 'children',
+          childrenSource: 'parent',
           expandAll: false,
-          onExpand: (i) => {
-            console.log('expanded', i);
-          },
+          parentKey: 'parent'
         }}
         onVisibleDataChange={(i) => {
           console.log('onVisibleDataChange', i);
