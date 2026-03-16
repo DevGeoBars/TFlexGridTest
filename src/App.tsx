@@ -3,7 +3,7 @@ import './App.css'
 import React, { useEffect, useState } from 'react'
 
 import { columns } from './__mocks__/columns'
-import { data as dataLocal } from './__mocks__/data'
+import { data as dataLocal } from './__mocks__/tree/data'
 
 import { Button, Grid as GridComponent } from '@tflex/uikit'
 
@@ -12,6 +12,7 @@ import FOLDER_ICON from './assets/folderSSO.svg';
 
 // import '@tflex/uikit/dist/uikit.css';
 import './styles/uikit.css';
+import { treeConfig } from "./__mocks__/tree/treeConfig";
 
 const Grid = GridComponent as any;
 function App() {
@@ -23,20 +24,25 @@ function App() {
     <div className="App" data-testid="app-page">
       <Grid
         data={data}
-        config={{
-          columns,
-          rowHeight: 50,
-        }}
+        config={treeConfig}
         dragAndDrop={false}
+        lazyRender={{
+          chunkSize: 10,
+          chunksVisibleBuffer: 1,
+        }}
+        treeConfig={{
+          childrenKey: 'children',
+          childrenSource: 'children',
+          expandAll: false,
+          onExpand: (i) => {
+            console.log('expanded', i);
+          },
+        }}
+        onVisibleDataChange={(i) => {
+          console.log('onVisibleDataChange', i);
+        }}
       />
-      <Button onClick={() => {
-          setData((prev) =>
-            prev.map((i) => ({
-              ...i,
-              mainscheduledplan_projectelemanswerableuser_photo: FOLDER_ICON,
-            })),
-          )
-        }}>get icons</Button>
+
     </div>
   )
 }
