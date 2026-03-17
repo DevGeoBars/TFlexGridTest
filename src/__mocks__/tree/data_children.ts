@@ -1,4 +1,4 @@
-export const data = [
+export const data_children = [
   {
     denotation: 'РСТ-2024',
     description: 'Описание проекта 1',

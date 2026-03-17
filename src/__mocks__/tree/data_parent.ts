@@ -28,7 +28,7 @@ export const data_parent = [
     parent: null,
     result: 'В процессе',
     s_classid: 'Портфель',
-    type: 'Портфель'
+    type: 'Портфель',
   },
   {
     budget_cost_unit: 'руб',
@@ -59,7 +59,7 @@ export const data_parent = [
     parent: '33',
     result: 'В процессе',
     s_classid: 'Проект',
-    type: 'Проект'
+    type: 'Проект',
   },
   {
     budget_cost_unit: 'руб',
@@ -90,7 +90,7 @@ export const data_parent = [
     parent: '34',
     result: 'В процессе',
     s_classid: 'Подпроект',
-    type: 'Подпроект'
+    type: 'Подпроект',
   },
   {
     budget_cost_unit: 'руб',
@@ -121,7 +121,7 @@ export const data_parent = [
     parent: '34',
     result: 'В процессе',
     s_classid: 'Подпроект',
-    type: 'Подпроект'
+    type: 'Подпроект',
   },
   {
     budget_cost_unit: 'руб',
@@ -152,7 +152,7 @@ export const data_parent = [
     parent: '34',
     result: 'В процессе',
     s_classid: 'Подпроект',
-    type: 'Подпроект'
+    type: 'Подпроект',
   },
   {
     budget_cost_unit: 'руб',
@@ -183,7 +183,7 @@ export const data_parent = [
     parent: '34',
     result: 'В процессе',
     s_classid: 'Подпроект',
-    type: 'Подпроект'
+    type: 'Подпроект',
   },
   {
     budget_cost_unit: 'руб',
@@ -214,7 +214,7 @@ export const data_parent = [
     parent: '34',
     result: 'В процессе',
     s_classid: 'Подпроект',
-    type: 'Подпроект'
+    type: 'Подпроект',
   },
   {
     budget_cost_unit: 'руб',
@@ -245,7 +245,7 @@ export const data_parent = [
     parent: '34',
     result: 'В процессе',
     s_classid: 'Подпроект',
-    type: 'Подпроект'
+    type: 'Подпроект',
   },
   {
     budget_cost_unit: 'руб',
@@ -276,7 +276,7 @@ export const data_parent = [
     parent: '34',
     result: 'В процессе',
     s_classid: 'Подпроект',
-    type: 'Подпроект'
+    type: 'Подпроект',
   },
   {
     budget_cost_unit: 'руб',
@@ -307,7 +307,7 @@ export const data_parent = [
     parent: '34',
     result: 'В процессе',
     s_classid: 'Подпроект',
-    type: 'Подпроект'
+    type: 'Подпроект',
   },
   {
     budget_cost_unit: 'руб',
@@ -338,7 +338,7 @@ export const data_parent = [
     parent: '34',
     result: 'В процессе',
     s_classid: 'Подпроект',
-    type: 'Подпроект'
+    type: 'Подпроект',
   },
   {
     budget_cost_unit: 'руб',
@@ -369,7 +369,7 @@ export const data_parent = [
     parent: '34',
     result: 'В процессе',
     s_classid: 'Подпроект',
-    type: 'Подпроект'
+    type: 'Подпроект',
   },
   {
     budget_cost_unit: 'руб',
@@ -400,7 +400,7 @@ export const data_parent = [
     parent: '39',
     result: 'В процессе',
     s_classid: 'Подпроект',
-    type: 'Подпроект'
+    type: 'Подпроект',
   },
   {
     budget_cost_unit: 'руб',
@@ -431,7 +431,7 @@ export const data_parent = [
     parent: '34',
     result: 'В процессе',
     s_classid: 'Подпроект',
-    type: 'Подпроект'
+    type: 'Подпроект',
   },
   {
     budget_cost_unit: 'руб',
@@ -462,7 +462,7 @@ export const data_parent = [
     parent: '39',
     result: 'В процессе',
     s_classid: 'Подпроект',
-    type: 'Подпроект'
+    type: 'Подпроект',
   },
   {
     budget_cost_unit: 'руб',
@@ -493,6 +493,6 @@ export const data_parent = [
     parent: '39',
     result: 'В процессе',
     s_classid: 'Подпроект',
-    type: 'Подпроект'
+    type: 'Подпроект',
   },
 ]
