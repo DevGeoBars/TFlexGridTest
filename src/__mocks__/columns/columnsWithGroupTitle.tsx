@@ -4,7 +4,7 @@ import { ProjectItem } from '../../models'
 
 const INFO_GROUP_TITLE = 'Основная информация'
 const DATES_GROUP_TITLE = 'Сроки'
-const EFFECT_GROUP_TITLE = 'Сроки'
+const EFFECT_GROUP_TITLE = 'Прогресс'
 
 export const columnsWithGroupTitle: TGridColumnConfig<ProjectItem>[] = [
   {
@@ -32,12 +32,6 @@ export const columnsWithGroupTitle: TGridColumnConfig<ProjectItem>[] = [
     header: 'Обозначение',
     key: 'denotation',
     width: 'minmax(120px, 1fr)',
-  },
-  {
-    groupTitle: null,
-    header: 'Наименование',
-    key: 'mainscheduledplan_name',
-    width: 'minmax(180px, 2fr)',
   },
 
   {

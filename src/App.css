@@ -47,3 +47,7 @@
   gap: 20px;
   align-items: center;
 }
+
+.test-column-header {
+  background-color: #2c6476;
+}
