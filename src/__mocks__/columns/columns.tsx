@@ -68,7 +68,7 @@ export const columns: TGridColumnConfig<ProjectItemSimple>[] = [
   {
     groupTitle: DATES_GROUP_TITLE,
     header: 'Длительность',
-    key: 'projectTine',
+    key: 'projectTime',
     width: 'minmax(100px, 1fr)',
   },
   {

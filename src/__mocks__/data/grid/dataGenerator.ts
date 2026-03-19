@@ -23,6 +23,18 @@ export const generateProjects = (count: number): ProjectItemSimple[] => {
     'Васильева Е.К.',
     'Смирнов Д.С.',
   ]
+  const goals = [
+    'Разработать новый продукт',
+    'Оптимизировать бизнес-процессы',
+    'Внедрить инновационную технологию',
+    'Повысить эффективность',
+    'Сократить издержки',
+    'Улучшить качество',
+    'Автоматизировать процессы',
+    'Модернизировать оборудование',
+    'Создать цифровую платформу',
+    'Обучить персонал',
+  ]
 
   return Array.from({ length: count }, (_, i) => ({
     id: `${100 + i}`,
@@ -36,5 +48,8 @@ export const generateProjects = (count: number): ProjectItemSimple[] => {
     responsiblePerson: persons[i % persons.length],
     startDate: `01.0${(i % 9) + 1}.2025`,
     endDate: `31.1${i % 8}.2026`,
+    photo: 'some',
+    goal: goals[i % persons.length],
+    projectTime: Math.floor(Math.random() * 365) + 30,
   }))
 }

@@ -7,7 +7,7 @@ export interface ProjectItemSimple {
   result: string
   progress: string
   responsiblePerson: string
-  projectTine: number
+  projectTime: number
   goal: string
   startDate: string
   endDate: string
