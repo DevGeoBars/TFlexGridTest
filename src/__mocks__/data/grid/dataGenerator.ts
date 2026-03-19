@@ -1,6 +1,8 @@
-import { ProjectItemSimple } from '../../../models'
+import { type GridSimpleStructure, ProjectItemSimple } from '../../../models'
 
-export const generateProjects = (count: number): ProjectItemSimple[] => {
+export const generateProjects = (
+  count: number,
+): Partial<ProjectItemSimple>[] => {
   const projectNames = [
     'Разработка системы',
     'Модернизация технологии',
@@ -38,6 +40,7 @@ export const generateProjects = (count: number): ProjectItemSimple[] => {
 
   return Array.from({ length: count }, (_, i) => ({
     id: `${100 + i}`,
+    guid: `${100 + i}`,
     name: projectNames[i % projectNames.length] + ` ${Math.floor(i / 10) + 1}`,
     denotation: `${denotations[i % denotations.length]}-${
       2024 + Math.floor(i / denotations.length)
@@ -51,5 +54,14 @@ export const generateProjects = (count: number): ProjectItemSimple[] => {
     photo: 'some',
     goal: goals[i % persons.length],
     projectTime: Math.floor(Math.random() * 365) + 30,
+  }))
+}
+
+export const generateProjectIds = (
+  count: number,
+): Partial<ProjectItemSimple>[] => {
+  return Array.from({ length: count }, (_, i) => ({
+    id: `${100 + i}`,
+    guid: `${100 + i}`,
   }))
 }

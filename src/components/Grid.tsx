@@ -1,29 +1,48 @@
 import { Grid as GridComponent } from '@tflex/uikit'
-import React from 'react'
+import React, { useState } from 'react'
+
+import { generateProjectIds, generateProjects } from '@/__mocks__'
+import { fetchData } from '@/components/helpers/fetchData'
+import { useConfig } from '@/components/hooks/useConfig'
+import { ProjectItemSimple } from '@/models'
 
 export const DataGrid = () => {
-  console.log('a')
+  const [data, setData] = useState(generateProjectIds(200))
+
+  const { config } = useConfig()
+
   return (
     <GridComponent
       className={'grid'}
-      data={[]}
-      config={{ columns: [], rowHeight: 48 }}
+      data={data}
+      config={config}
       dragAndDrop={true}
-      onNeedData={(items) => {
+      onNeedData={async (items, { onDataReceived }) => {
         console.log(items)
-      }}
-      onVisibleDataChange={(i) => {
-        console.log('onVisibleDataChange', i)
+        const fullData = await fetchData()
+
+        const firstPortion = items.map((item) => {
+          const fullItem = fullData.find((d) => d.guid === item.guid)
+
+          if (fullItem) {
+            return fullItem
+          } else {
+            return {
+              guid: item.guid,
+            } as unknown as Partial<ProjectItemSimple>
+          }
+        })
+        onDataReceived(firstPortion)
       }}
       lazyRender={{
-        chunkSize: 100,
+        chunkSize: 20,
         chunksVisibleBuffer: 1,
       }}
-      treeConfig={{
-        childrenSource: 'parent',
-        expandAll: false,
-        parentKey: 'parent',
-      }}
+      // treeConfig={{
+      //   childrenSource: 'parent',
+      //   expandAll: false,
+      //   parentKey: 'parent',
+      // }}
     />
   )
 }

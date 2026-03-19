@@ -8,7 +8,7 @@ const INFO_GROUP_TITLE = 'Основная информация'
 const DATES_GROUP_TITLE = 'Сроки'
 const EFFECT_GROUP_TITLE = 'Прогресс'
 
-export const columns: TGridColumnConfig<ProjectItemSimple>[] = [
+export const columns: TGridColumnConfig<Partial<ProjectItemSimple>>[] = [
   {
     key: 'photo',
     header: 'Фото',

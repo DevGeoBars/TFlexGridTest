@@ -1,5 +1,6 @@
 export interface ProjectItemSimple {
   id: string
+  guid: string
   photo: string
   name: string
   denotation: string
@@ -15,6 +16,7 @@ export interface ProjectItemSimple {
 
 export interface Employee {
   id: string
+  guid: string
   shortName: string // ФИО кратко (например: "Петров П.П.")
   fullName?: string // Полное ФИО
   photo?: string | null
