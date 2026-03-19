@@ -20,10 +20,7 @@ export const columns: TGridColumnConfig<ProjectItemSimple>[] = [
         <div
           style={{ height: '100%', width: '100%' }}
           className={'folder-column'}>
-          <img
-            src={FOLDER_LOGO}
-            alt={props.item.mainscheduledplan_projectelemanswerableuser_photo?.toString()}
-          />
+          <img src={FOLDER_LOGO} alt={props.item.photo} />
         </div>
       )
     },
@@ -92,4 +89,4 @@ export const columns: TGridColumnConfig<ProjectItemSimple>[] = [
     key: 'goal',
     width: 'minmax(150px, 1fr)',
   },
-] as any
+]
