@@ -2,7 +2,7 @@ import { Grid as GridComponent } from '@tflex/uikit'
 import React, { useState } from 'react'
 
 import { generateProjectIds, generateProjects } from '@/__mocks__'
-import { fetchData } from '@/components/helpers/fetchData'
+import { fetchData, fetchHardData } from '@/components/helpers/fetchData'
 import { useConfig } from '@/components/hooks/useConfig'
 import { ProjectItemSimple } from '@/models'
 
@@ -33,6 +33,21 @@ export const DataGrid = () => {
           }
         })
         onDataReceived(firstPortion)
+
+        const customColumnsData = await fetchHardData()
+
+        const secondPortion = items.map((item) => {
+          const fullItem = customColumnsData.find((d) => d.guid === item.guid)
+
+          if (fullItem) {
+            return fullItem
+          } else {
+            return {
+              guid: item.guid,
+            } as unknown as Partial<ProjectItemSimple>
+          }
+        })
+        onDataReceived(secondPortion)
       }}
       lazyRender={{
         chunkSize: 20,

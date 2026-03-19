@@ -46,8 +46,6 @@ export const generateProjects = (
       2024 + Math.floor(i / denotations.length)
     }`,
     type: i % 3 === 0 ? 'Портфель' : i % 3 === 1 ? 'Проект' : 'Подпроект',
-    result: i % 4 === 0 ? 'Завершен' : i % 4 === 1 ? 'В процессе' : 'Не начат',
-    progress: `${(i * 7) % 101} %`,
     responsiblePerson: persons[i % persons.length],
     startDate: `01.0${(i % 9) + 1}.2025`,
     endDate: `31.1${i % 8}.2026`,
@@ -63,5 +61,16 @@ export const generateProjectIds = (
   return Array.from({ length: count }, (_, i) => ({
     id: `${100 + i}`,
     guid: `${100 + i}`,
+  }))
+}
+
+export const generateCustomColumnsData = (
+  count: number,
+): Partial<ProjectItemSimple>[] => {
+  return Array.from({ length: count }, (_, i) => ({
+    id: `${100 + i}`,
+    guid: `${100 + i}`,
+    progress: `${(i * 7) % 101} %`,
+    result: i % 4 === 0 ? 'Завершен' : i % 4 === 1 ? 'В процессе' : 'Не начат',
   }))
 }
