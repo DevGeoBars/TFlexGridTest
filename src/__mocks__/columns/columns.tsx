@@ -1,31 +1,95 @@
 import { TGridColumnConfig } from '@tflex/uikit/src/components/Grid/types'
+import React from 'react'
 
-import { ProjectItem } from '../../models'
+import FOLDER_LOGO from '@/assets/folderSSO.svg'
+import { ProjectItemSimple } from '@/models'
 
-export const simpleColumns: TGridColumnConfig<ProjectItem>[] = [
+const INFO_GROUP_TITLE = 'Основная информация'
+const DATES_GROUP_TITLE = 'Сроки'
+const EFFECT_GROUP_TITLE = 'Прогресс'
+
+export const columns: TGridColumnConfig<ProjectItemSimple>[] = [
   {
-    groupTitle: null,
-    header: 'ФИО',
-    key: 'mainscheduledplan_projectelemanswerableuser_shortname',
-    width: 'minmax(200px, 1fr)',
+    key: 'photo',
+    header: 'Фото',
+    width: 'min-content',
+    cell: (props) => {
+      console.log(props)
+
+      return (
+        <div
+          style={{ height: '100%', width: '100%' }}
+          className={'folder-column'}>
+          <img
+            src={FOLDER_LOGO}
+            alt={props.item.mainscheduledplan_projectelemanswerableuser_photo?.toString()}
+          />
+        </div>
+      )
+    },
     isTreeColumn: true,
   },
   {
-    groupTitle: null,
-    header: 'Тип',
-    key: 'type',
-    width: 'minmax(200px, 2fr)',
-  },
-  {
-    groupTitle: null,
+    groupTitle: INFO_GROUP_TITLE,
     header: 'Наименование',
     key: 'name',
     width: 'min-content',
   },
   {
-    groupTitle: null,
+    groupTitle: INFO_GROUP_TITLE,
+    header: 'ФИО',
+    key: 'responsiblePerson',
+    width: 'minmax(200px, 1fr)',
+  },
+  {
+    groupTitle: INFO_GROUP_TITLE,
+    header: 'Тип',
+    key: 'type',
+    width: 'minmax(200px, 2fr)',
+    isTreeColumn: true,
+  },
+
+  {
+    groupTitle: INFO_GROUP_TITLE,
     header: 'Обозначение',
     key: 'denotation',
     width: 'minmax(120px, 1fr)',
+  },
+
+  {
+    groupTitle: DATES_GROUP_TITLE,
+    header: 'Начало',
+    key: 'startDate',
+    width: 'minmax(100px, 1fr)',
+  },
+  {
+    groupTitle: DATES_GROUP_TITLE,
+    header: 'Окончание',
+    key: 'endDate',
+    width: 'minmax(100px, 1fr)',
+  },
+  {
+    groupTitle: DATES_GROUP_TITLE,
+    header: 'Длительность',
+    key: 'projectTine',
+    width: 'minmax(100px, 1fr)',
+  },
+  {
+    groupTitle: EFFECT_GROUP_TITLE,
+    header: '% выполнения',
+    key: 'progress',
+    width: 'minmax(100px, 1fr)',
+  },
+  {
+    groupTitle: EFFECT_GROUP_TITLE,
+    header: 'Результат',
+    key: 'result',
+    width: 'minmax(150px, 1fr)',
+  },
+  {
+    groupTitle: null,
+    header: 'Цель',
+    key: 'goal',
+    width: 'minmax(150px, 1fr)',
   },
 ] as any

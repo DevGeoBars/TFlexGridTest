@@ -1,4 +1,4 @@
-export const data_parent = [
+export const index = [
   {
     budget_cost_unit: '',
     budget_cost_value: '0',
@@ -495,4 +495,23 @@ export const data_parent = [
     s_classid: 'Подпроект',
     type: 'Подпроект',
   },
+]
+
+export const data_parent_ids = [
+  { id: '33', parent: null },
+  { id: '34', parent: '33' },
+  { id: '35', parent: '34' },
+  { id: '36', parent: '34' },
+  { id: '37', parent: '34' },
+  { id: '38', parent: '34' },
+  { id: '39', parent: '34' },
+  { id: '40', parent: '34' },
+  { id: '41', parent: '34' },
+  { id: '35', parent: '34' },
+  { id: '36', parent: '34' },
+  { id: '37', parent: '34' },
+  { id: '38', parent: '39' },
+  { id: '39', parent: '34' },
+  { id: '40', parent: '39' },
+  { id: '41', parent: '39' },
 ]

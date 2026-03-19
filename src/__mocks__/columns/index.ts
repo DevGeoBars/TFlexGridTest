@@ -1,3 +1,3 @@
 export * from './columns'
-export * from './columnsWithGroupTitle'
+export * from './columns'
 export * from './columnsWithTemplate'
