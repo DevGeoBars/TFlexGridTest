@@ -34,6 +34,9 @@ export const TreeList = () => {
             } as unknown as Partial<ProjectItemSimple>
           }
         })
+
+        console.log('firstPortion', firstPortion)
+
         onDataReceived(firstPortion)
       }}
       lazyRender={{
