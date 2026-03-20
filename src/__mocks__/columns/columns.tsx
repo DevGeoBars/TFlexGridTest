@@ -14,8 +14,6 @@ export const columns: TGridColumnConfig<Partial<ProjectItemSimple>>[] = [
     header: 'Фото',
     width: 'min-content',
     cell: (props) => {
-      console.log(props)
-
       return (
         <div
           style={{ height: '100%', width: '100%' }}
