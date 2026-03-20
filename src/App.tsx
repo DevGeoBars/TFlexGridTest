@@ -7,8 +7,6 @@ import React, { useRef, useState } from 'react'
 import { DataGrid } from '@/components'
 
 function App() {
-  const [data, setData] = useState([])
-
   const componentRef = useRef<any>(null)
 
   const [columnsConfig, setColumnsConfig] = useState<
