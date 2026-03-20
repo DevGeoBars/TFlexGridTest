@@ -14,6 +14,23 @@ export interface ProjectItemSimple {
   endDate: string
 }
 
+export interface ProjectItemTreeSimple {
+  id: string
+  guid: string
+  photo: string
+  name: string
+  denotation: string
+  type: string
+  result: string
+  progress: string
+  responsiblePerson: string
+  projectTime: number
+  goal: string
+  startDate: string
+  endDate: string
+  parent: string | null
+}
+
 export interface Employee {
   id: string
   guid: string

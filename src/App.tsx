@@ -4,7 +4,7 @@ import './styles/uikit.css'
 // import '@tflex/uikit/dist/uikit.css';
 import React, { useRef, useState } from 'react'
 
-import { DataGrid } from '@/components'
+import { DataGrid, TreeList } from '@/components'
 
 function App() {
   const componentRef = useRef<any>(null)
@@ -16,7 +16,9 @@ function App() {
   return (
     <div className={'example'}>
       <div className="grid-container">
-        <DataGrid />
+        {/*<DataGrid />*/}
+
+        <TreeList />
       </div>
       <div className={'footer'}>
         <div className={'select'}>
