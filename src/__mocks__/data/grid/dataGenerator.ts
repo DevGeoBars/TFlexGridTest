@@ -1,4 +1,4 @@
-import { type GridSimpleStructure, ProjectItemSimple } from '../../../models'
+import { ProjectItemSimple } from '@/models'
 
 export const generateProjects = (
   count: number,

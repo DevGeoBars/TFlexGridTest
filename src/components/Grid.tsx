@@ -1,7 +1,7 @@
 import { Grid as GridComponent } from '@tflex/uikit'
 import React, { useState } from 'react'
 
-import { generateProjectIds, generateProjects } from '@/__mocks__'
+import { generateProjectIds } from '@/__mocks__'
 import { fetchData, fetchHardData } from '@/components/helpers/fetchData'
 import { useConfig } from '@/components/hooks/useConfig'
 import { ProjectItemSimple } from '@/models'
