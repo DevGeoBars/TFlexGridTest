@@ -9,27 +9,22 @@ import { DataGrid, TreeList } from '@/components'
 function App() {
   const componentRef = useRef<any>(null)
 
-  const [columnsConfig, setColumnsConfig] = useState<
-    'simple' | 'template' | 'grouped'
-  >('simple')
+  const [type, setType] = useState<'simple' | 'tree'>('simple')
 
   return (
     <div className={'example'}>
       <div className="grid-container">
-        {/*<DataGrid />*/}
-
-        <TreeList />
+        {type === 'simple' ? <DataGrid /> : <TreeList />}
       </div>
       <div className={'footer'}>
         <div className={'select'}>
-          <span className="mode-info">конфигурация колонок</span>
+          <span className="mode-info">Тип компоненты</span>
           <select
-            value={columnsConfig}
-            onChange={(e) => setColumnsConfig(e.target.value as any)}
+            value={type}
+            onChange={(e) => setType(e.target.value as any)}
             className="mode-select">
             <option value="simple">Простая таблица</option>
-            <option value="template">С шаблонными ячейками</option>
-            <option value="grouped">С группировкой колонок</option>
+            <option value="template">Дерево</option>
           </select>
         </div>
         {/*<div className={'select'}>*/}
