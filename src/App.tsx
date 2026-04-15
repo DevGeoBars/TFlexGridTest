@@ -4,17 +4,23 @@ import './styles/uikit.css'
 // import '@tflex/uikit/dist/uikit.css';
 import React, { useRef, useState } from 'react'
 
-import { DataGrid, TreeList } from '@/components'
+import { DataGrid, DataGridClassic, TreeList } from '@/components'
 
 function App() {
   const componentRef = useRef<any>(null)
 
-  const [type, setType] = useState<'simple' | 'tree'>('simple')
+  const [type, setType] = useState<'simple' | 'tree' | 'gridClassic'>('simple')
 
   return (
     <div className={'example'}>
       <div className="grid-container">
-        {type === 'simple' ? <DataGrid /> : <TreeList />}
+        {type === 'simple' ? (
+          <DataGrid />
+        ) : type === 'gridClassic' ? (
+          <DataGridClassic />
+        ) : (
+          <TreeList />
+        )}
       </div>
       <div className={'footer'}>
         <div className={'select'}>
@@ -24,6 +30,7 @@ function App() {
             onChange={(e) => setType(e.target.value as any)}
             className="mode-select">
             <option value="simple">Простая таблица</option>
+            <option value="gridClassic">Классическая таблица</option>
             <option value="template">Дерево</option>
           </select>
         </div>
