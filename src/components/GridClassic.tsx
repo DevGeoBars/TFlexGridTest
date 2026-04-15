@@ -1,4 +1,4 @@
-import { Grid } from '@tflex/uikit'
+import { Grid, Paginator } from '@tflex/uikit'
 import React, { useState } from 'react'
 
 import { generateProjectIds, generateProjects } from '@/__mocks__'
