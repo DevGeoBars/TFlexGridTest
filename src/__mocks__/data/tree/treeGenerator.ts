@@ -82,9 +82,8 @@ export const generateTreeProjectsIds = (): Partial<ProjectItemTreeSimple>[] => {
   return result
 }
 
-export const generateProjectsWithChildren = (
-  count: number,
-): Partial<ProjectItemSimple>[] => {
+export const generateProjectsWithChildren = (count: number): any[] => {
+  // Просто возвращаем any[]
   const projectNames = [
     'Разработка системы',
     'Модернизация технологии',
@@ -120,21 +119,77 @@ export const generateProjectsWithChildren = (
     'Обучить персонал',
   ]
 
-  return Array.from({ length: count }, (_, i) => ({
-    id: `${100 + i}`,
-    __hasChildren: true,
-    children: [],
-    guid: `${100 + i}`,
-    name: projectNames[i % projectNames.length] + ` ${Math.floor(i / 10) + 1}`,
-    denotation: `${denotations[i % denotations.length]}-${
-      2024 + Math.floor(i / denotations.length)
-    }`,
-    type: i % 3 === 0 ? 'Портфель' : i % 3 === 1 ? 'Проект' : 'Подпроект',
-    responsiblePerson: persons[i % persons.length],
-    startDate: `01.0${(i % 9) + 1}.2025`,
-    endDate: `31.1${i % 8}.2026`,
-    photo: 'some',
-    goal: goals[i % persons.length],
-    projectTime: Math.floor(Math.random() * 365) + 30,
-  }))
+  const usedIds = new Set<number>()
+
+  const generateUniqueId = (): string => {
+    let id: number
+    do {
+      id = Math.floor(Math.random() * 9000) + 1000
+    } while (usedIds.has(id))
+
+    usedIds.add(id)
+    return id.toString()
+  }
+
+  const createProject = (depth: number, maxDepth: number): any => {
+    const id = generateUniqueId()
+    const hasChildren = depth < maxDepth && Math.random() > 0.3
+
+    const project: any = {
+      id,
+      __hasChildren: hasChildren,
+      children: [],
+      guid: id,
+      name: `${projectNames[Math.floor(Math.random() * projectNames.length)]} ${
+        Math.floor(Math.random() * 100) + 1
+      }`,
+      denotation: `${
+        denotations[Math.floor(Math.random() * denotations.length)]
+      }-${2024 + Math.floor(Math.random() * 3)}`,
+      type:
+        Math.random() > 0.7
+          ? 'Портфель'
+          : Math.random() > 0.5
+          ? 'Проект'
+          : 'Подпроект',
+      responsiblePerson: persons[Math.floor(Math.random() * persons.length)],
+      startDate: `01.0${Math.floor(Math.random() * 9) + 1}.2025`,
+      endDate: `31.1${Math.floor(Math.random() * 8) + 1}.2026`,
+      photo: 'some',
+      goal: goals[Math.floor(Math.random() * goals.length)],
+      projectTime: Math.floor(Math.random() * 365) + 30,
+    }
+
+    if (hasChildren) {
+      const childrenCount = Math.floor(Math.random() * 5) + 1
+      project.children = Array.from({ length: childrenCount }, () =>
+        createProject(depth + 1, maxDepth),
+      )
+    }
+
+    return project
+  }
+
+  const maxDepth = 3
+  return Array.from({ length: count }, () => createProject(0, maxDepth))
+}
+
+// Пример использования:
+// const projects = generateProjectsWithChildren(50, 4, 6) // примерно 50 узлов всего
+
+// В файле с типами добавьте поля
+export interface ProjectItemSimple {
+  id: string
+  guid: string
+  name: string
+  denotation: string
+  type: string
+  responsiblePerson: string
+  startDate: string
+  endDate: string
+  photo: string
+  goal: string
+  projectTime: number
+  __hasChildren?: boolean // опциональное поле
+  children?: ProjectItemSimple[] // опциональное поле для дочерних элементов
 }
