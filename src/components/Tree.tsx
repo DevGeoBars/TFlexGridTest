@@ -1,7 +1,7 @@
 import { Grid as GridComponent } from '@tflex/uikit'
 import React, { useState } from 'react'
 
-import { generateTreeProjectsIds } from '@/__mocks__/data/tree/tree'
+import { generateTreeProjectsIds } from '@/__mocks__/data/tree/treeGenerator'
 import { fetchTreeData } from '@/components/helpers/fetchTreeData'
 import { useTreeConfig } from '@/components/hooks/useConfig'
 import { ProjectItemSimple } from '@/models'

@@ -1,5 +1,5 @@
 import { generateProjects } from '@/__mocks__'
-import { generateTreeProjects } from '@/__mocks__/data/tree/tree'
+import { generateTreeProjects } from '@/__mocks__/data/tree/treeGenerator'
 import { ProjectItemSimple } from '@/models'
 
 export const fetchTreeData = async () => {
