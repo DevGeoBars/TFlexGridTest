@@ -1,5 +1,4 @@
 import { Grid as GridComponent } from '@tflex/uikit'
-import s from '@tflex/uikit/dist/uikit.css'
 import React, { useState } from 'react'
 
 import { generateProjectIds } from '@/__mocks__'
