@@ -1,10 +1,8 @@
-import { Grid, Paginator } from '@tflex/uikit'
+import { Grid } from '@tflex/uikit'
 import React, { useState } from 'react'
 
-import { generateProjectIds, generateProjects } from '@/__mocks__'
-import { fetchData, fetchHardData } from '@/components/helpers/fetchData'
+import { generateProjects } from '@/__mocks__'
 import { useConfig } from '@/components/hooks/useConfig'
-import { ProjectItemSimple } from '@/models'
 
 export const DataGridClassic = () => {
   const [data, setData] = useState(generateProjects(100))
