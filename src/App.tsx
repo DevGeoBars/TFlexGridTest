@@ -4,7 +4,12 @@ import './styles/uikit.css'
 // import '@tflex/uikit/dist/uikit.css';
 import React, { useRef, useState } from 'react'
 
-import { DataGrid, DataGridClassic, TreeList } from '@/components'
+import {
+  DataGrid,
+  DataGridClassic,
+  TreeList,
+  TreeListClassic,
+} from '@/components'
 
 function App() {
   const componentRef = useRef<any>(null)
@@ -19,7 +24,7 @@ function App() {
         ) : type === 'gridClassic' ? (
           <DataGridClassic />
         ) : (
-          <TreeList />
+          <TreeListClassic />
         )}
       </div>
       <div className={'footer'}>
