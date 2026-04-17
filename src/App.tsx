@@ -14,15 +14,19 @@ import {
 function App() {
   const componentRef = useRef<any>(null)
 
-  const [type, setType] = useState<'simple' | 'tree' | 'gridClassic'>('simple')
+  const [type, setType] = useState<
+    'gridWithOnNeedLoad' | 'treeWithOnNeedLoad' | 'gridClassic'
+  >('gridWithOnNeedLoad')
 
   return (
     <div className={'example'}>
       <div className="grid-container">
-        {type === 'simple' ? (
+        {type === 'gridWithOnNeedLoad' ? (
           <DataGrid />
         ) : type === 'gridClassic' ? (
           <DataGridClassic />
+        ) : type === 'treeWithOnNeedLoad' ? (
+          <TreeList />
         ) : (
           <TreeListClassic />
         )}
@@ -34,9 +38,10 @@ function App() {
             value={type}
             onChange={(e) => setType(e.target.value as any)}
             className="mode-select">
-            <option value="simple">Простая таблица</option>
+            <option value="gridWithOnNeedLoad">Таблица с догрузкой</option>
             <option value="gridClassic">Классическая таблица</option>
-            <option value="template">Дерево</option>
+            <option value="treeWithOnNeedLoad">Дерево с догрузкой</option>
+            <option value="tree">Дерево классическое</option>
           </select>
         </div>
         {/*<div className={'select'}>*/}
@@ -47,7 +52,7 @@ function App() {
         {/*    value={columnsConfig}*/}
         {/*    onChange={(e) => setColumnsConfig(e.target.value as any)}*/}
         {/*    className="mode-select">*/}
-        {/*    <option value="simple">Простая таблица</option>*/}
+        {/*    <option value="gridWithOnNeedLoad">Простая таблица</option>*/}
         {/*    <option value="template">С шаблонными ячейками</option>*/}
         {/*    <option value="grouped">С группировкой колонок</option>*/}
         {/*  </select>*/}
